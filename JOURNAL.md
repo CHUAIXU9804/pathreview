@@ -25,3 +25,16 @@ function in the `bias_detector.py` in the `safety` directory. 9 test cases in
 **Setup confirmation:** [x] App runs locally at localhost:5173
 
 **Cohort ledger:** [x] Issue added to cohort ledger
+
+**Work Progress**
+Was able to reproduce the issue by running the following command: 
+(.venv) cxu@MacBookAir pathreview % python3 -c "                                                                               
+from safety.bias_detector import BiasDetector
+print(BiasDetector.detect_bias('The candidate only attended a bootcamp, so this project lacks the rigor of a formal CS education'))
+"
+(False, '')
+
+
+
+
+
