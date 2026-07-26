@@ -73,9 +73,9 @@ Then use the failed tests as guardrails so they don't create false positives - m
 I was able to reproduce the issue running the following command: python3 -c "from safety.bias_detector import BiasDetector
 print(BiasDetector.detect_bias('The candidate only attended a bootcamp, so this project lacks the rigor of a formal CS education'))". I noticed when the phrase "The candidate only attended a bootcamp, so this project lacks the rigor of a formal CS education" is passed into the function, the bias detector is not able to detect the bias, and return "False" as the result. Only when an explicit exact phrase is passed into the function, such as "bootcamp graduates lack rigor", then the bias detector is able to detect the bias by returning a warning with a reason "Dismissive language about educational background".
 
-**PLAN.md link:** [link to PLAN.md in your fork]
+**PLAN.md link:** [PLAN.md](PLAN.md)
 
-**Walkthrough video (recommended):** [link to your Loom video, ≤2 min — recommended, not graded]
+**Walkthrough video (recommended):** [Walkthrough_Video](pathreview/video1318638326.mp4)
 
 **Blockers or open questions:**
 [Anything you're still uncertain about going into Week 9, or leave blank]
