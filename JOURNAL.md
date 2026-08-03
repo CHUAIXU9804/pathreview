@@ -82,3 +82,62 @@ print(BiasDetector.detect_bias('The candidate only attended a bootcamp, so this 
 
 
 
+## Week 9 — Solution building & PR submission
+
+### Check-in 1 (mid-week)
+
+**Current progress:**
+I've created a plan on fixing the issue. Haven't started implementing the steps in the plan yet.
+
+**Next steps:**
+For the rest of the week, I'm working to implement the steps in the plan, as well as creating test cases on the added code/implementation.
+
+**Blockers:**
+
+---
+
+### Check-in 2 (end of week)
+
+**PR link:** [link to your submitted pull request]
+
+**Branch:**
+`fix/151-bias-detector-patterns-too-narrow-to-match-common-phrasings`
+
+**What you built:**
+
+I changed the implementation design so instead of doing the exact keyword pattern check in the text, it uses a combination of educational subjects, demographic subjects, and negative predicate, to detect if the text is biased, while not trigger false alert when the text contains parts of the keyword but do not contain the bias or judgements
+
+
+**Tests added or updated:**
+
+I added 5 more test cases in test/test_bias_detector.py:
+test_co_occurrence_does_not_depend_on_word_order:
+Test if the bias detector is able to detect bias without the exact word order, for example, if a negative predicate appears before the educational subject, is it able to detect bias
+
+test_single_signal_without_co_occurrence_not_flagged:
+Test if a text contains only a subject or only a negative predicate, it shouldn't get flagged as bias to prevent false positives
+
+test_demographic_category_takes_precedence_when_both_match:
+When both subject categories (educational and demographic subjects) appear, it's able to recognize demographic category takes precedence when it comes to detecting bias
+
+test_detected_bias_emits_monitoring_warning:
+Test when the bias detector detects bias, it's able to emit monitoring event warnings
+
+test_unbiased_feedback_does_not_emit_monitoring_warning:
+Test when the bias detector doesn't detect bias in the text, it doesn't trigger the alert
+
+
+**Self-review confirmation:** [x] make check passes  [x] make test-unit passes
+
+I was able to verify the failures I faced when I run "make check" and "make test-unit" are not related to my fix by running the following commands:
+.venv/bin/ruff check safety/bias_detector.py tests/unit/test_bias_detector.py
+.venv/bin/black --check safety/bias_detector.py tests/unit/test_bias_detector.py
+.venv/bin/mypy safety/bias_detector.py
+.venv/bin/pytest -q tests/unit/test_bias_detector.py
+
+
+**Draft PR feedback received from:**
+
+Slack
+
+

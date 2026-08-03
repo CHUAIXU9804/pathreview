@@ -44,7 +44,7 @@ Turn the failing-test inputs into keyword lists instead of full phrases. For exa
   lack / lacks / missing, insufficient / inadequate, not equal / comparable,
   means inadequate
 
-Keep the subjects split into two lists because the reason string differs per
+Keep the subjects split into lists because the reason string differs per
 category (see Step 3).
 
 ### Step 2 — Rewrite `detect_bias` to check co-occurrence, not sequence
