@@ -87,10 +87,10 @@ print(BiasDetector.detect_bias('The candidate only attended a bootcamp, so this 
 ### Check-in 1 (mid-week)
 
 **Current progress:**
-I've created a plan on fixing the issue. Haven't started implementing the steps in the plan yet.
+I've created a plan to fix the issue. I haven't started implementing the steps in the plan yet.
 
 **Next steps:**
-For the rest of the week, I'm working to implement the steps in the plan, as well as creating test cases on the added code/implementation.
+For the rest of the week, I'm working to implement the steps in the plan and create test cases for the added code/implementation.
 
 **Blockers:**
 
@@ -105,39 +105,33 @@ For the rest of the week, I'm working to implement the steps in the plan, as wel
 
 **What you built:**
 
-I changed the implementation design so instead of doing the exact keyword pattern check in the text, it uses a combination of educational subjects, demographic subjects, and negative predicate, to detect if the text is biased, while not trigger false alert when the text contains parts of the keyword but do not contain the bias or judgements
+I changed the implementation design so that, instead of performing an exact keyword-pattern check in the text, it uses a combination of educational subjects, demographic subjects, and negative predicates to detect whether the text is biased while not triggering false alerts when the text contains parts of the keywords but does not contain bias or judgments.
 
 
 **Tests added or updated:**
 
-I added 5 more test cases in test/test_bias_detector.py:
-test_co_occurrence_does_not_depend_on_word_order:
-Test if the bias detector is able to detect bias without the exact word order, for example, if a negative predicate appears before the educational subject, is it able to detect bias
+I added five more test cases to `test/test_bias_detector.py`:
 
-test_single_signal_without_co_occurrence_not_flagged:
-Test if a text contains only a subject or only a negative predicate, it shouldn't get flagged as bias to prevent false positives
-
-test_demographic_category_takes_precedence_when_both_match:
-When both subject categories (educational and demographic subjects) appear, it's able to recognize demographic category takes precedence when it comes to detecting bias
-
-test_detected_bias_emits_monitoring_warning:
-Test when the bias detector detects bias, it's able to emit monitoring event warnings
-
-test_unbiased_feedback_does_not_emit_monitoring_warning:
-Test when the bias detector doesn't detect bias in the text, it doesn't trigger the alert
+- `test_co_occurrence_does_not_depend_on_word_order`: Tests whether the bias detector can detect bias without the exact word order—for example, when a negative predicate appears before the educational subject.
+- `test_single_signal_without_co_occurrence_not_flagged`: Tests that text containing only a subject or only a negative predicate is not flagged as biased, preventing false positives.
+- `test_demographic_category_takes_precedence_when_both_match`: Tests that, when both subject categories (educational and demographic subjects) appear, the demographic category takes precedence in bias detection.
+- `test_detected_bias_emits_monitoring_warning`: Tests that the bias detector emits monitoring-event warnings when it detects bias.
+- `test_unbiased_feedback_does_not_emit_monitoring_warning`: Tests that the bias detector does not trigger an alert when it does not detect bias in the text.
 
 
-**Self-review confirmation:** [x] make check passes  [x] make test-unit passes
+**Self-review confirmation:** [x] `make check` passes  [x] `make test-unit` passes
 
-I was able to verify the failures I faced when I run "make check" and "make test-unit" are not related to my fix by running the following commands:
+I was able to verify that the failures I encountered when I ran `make check` and `make test-unit` were not related to my fix by running the following commands:
+
+```bash
 .venv/bin/ruff check safety/bias_detector.py tests/unit/test_bias_detector.py
 .venv/bin/black --check safety/bias_detector.py tests/unit/test_bias_detector.py
 .venv/bin/mypy safety/bias_detector.py
 .venv/bin/pytest -q tests/unit/test_bias_detector.py
+```
 
 
 **Draft PR feedback received from:**
 
 Slack
-
 
