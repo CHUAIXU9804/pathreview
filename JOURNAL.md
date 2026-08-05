@@ -135,3 +135,62 @@ I was able to verify that the failures I encountered when I ran `make check` and
 
 Slack
 
+
+## Week 10 — Iteration & reflection
+
+### Reviewer feedback
+
+**Feedback received:** [ ] Yes  [x] No — still awaiting review; no feedback for Summer 2026
+
+**Summary of feedback:**
+
+[What did reviewers comment on? Or note that no review came in.]
+
+N/A
+
+**How you responded:**
+
+[What changes did you make, or what did you reply? If no feedback,
+leave blank.]
+
+N/A
+
+---
+
+### Reflection
+
+**What was harder than you expected?**
+
+[Be specific — what part of the process, codebase, or workflow
+surprised you?]
+
+The setup process surprised me. When we were setting up the project, I didn't expect installing Docker, PostgreSQL, and the required software to take so much time or be so complex.
+
+**What did you learn about working in a large codebase?**
+
+[What's different about contributing to someone else's production code
+vs. building your own project?]
+
+What is different about contributing to someone else's production code compared with building your own project is that, when building your own project, you understand how it is built. When you modify the project or fix errors, if your changes cause other errors, you can modify them and add notes for your own reference. However, when contributing to someone else's codebase, you need to be very careful because some features may have been created by other developers who had specific intentions when they built them in certain ways. You don't want to modify the codebase and trigger other errors. Therefore, clear communication and creating a structured, clear PR are important.
+
+**How did AI tools help — and where did they fall short?**
+
+[Where was AI assistance most useful this module? Where did you need
+to go beyond what AI could give you?]
+
+AI assistance was helpful in understanding how the feature is used and how it relates to or interacts with other files. It also helped generate test cases. At the same time, some AI-generated test cases introduced new errors related to logs. I had to examine and correct the test cases myself to ensure they worked properly.
+
+**What would you do differently if you started over?**
+
+[Issue selection, planning, implementation, or process — anything
+you'd change?]
+
+I should have tested the application before making my implementation change because, when I ran the application, it returned many errors related to other features. Even though I was able to verify after my fix that the returned errors were not related to my implementation, testing beforehand would have helped me make a more accurate comparison—for example, how many errors existed before my fix versus after it.
+
+I should probably have chosen a more difficult issue because my issue is Tier 1 and only affects a few files. I would like to challenge myself more.
+
+**What are you most proud of from this module?**
+
+[One thing — it doesn't have to be the PR itself.]
+
+I'm proud that I was able to work in an unfamiliar codebase, identify an issue, reproduce it, and develop a plan to fix it.
